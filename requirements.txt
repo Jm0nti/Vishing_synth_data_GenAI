@@ -7,3 +7,6 @@ boto3
 sagemaker
 numpy
 seaborn
+pandas
+ipykernel
+scikit-learn
