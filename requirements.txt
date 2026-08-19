@@ -1,0 +1,55 @@
+# Pipeline remediado — dependencias
+#
+# Fijar versiones fue uno de los puntos de reproducibilidad señalados en la
+# revisión pre-envío: la v1 no declaraba ninguna. Los rangos siguen la máscara
+# de compatibilidad de SageMaker Distribution 1.x / Python 3.11.
+#
+#   pip install -r requirements.txt
+#
+# Tras la primera corrida, R0 escribe las versiones EXACTAS resueltas en
+# s3://poc-fraude-vishing/v2/01_contract/run_manifest.json. Ese archivo es el
+# que debe citarse en el paper, no este.
+#
+# La celda de arranque de todos los notebooks llama a `vc.check_versions()`, que
+# compara lo instalado contra estos rangos y avisa si el kernel resolvió algo
+# fuera. Los rangos están duplicados en VERSIONES_ESPERADAS (vishing_common.py):
+# si cambias uno, cambia el otro.
+
+# --- núcleo ---
+numpy>=1.26,<2.1
+pandas>=2.1,<2.3
+scipy>=1.11,<1.15
+pyarrow>=14.0
+scikit-learn>=1.4,<1.6
+
+# --- desbalanceo de clases ---
+imbalanced-learn>=0.12,<0.13
+
+# --- modelado ---
+xgboost>=2.0,<2.2          # tree_method='hist' + device='cuda'
+torch>=2.1                 # solo para fijar semillas y MLP en GPU
+
+# --- datos sintéticos ---
+sdv>=1.5,<2.0              # CTGANSynthesizer + SingleTableMetadata
+ctgan>=0.10
+
+# --- AutoML (solo R7) ---
+# Pesado y con su propio árbol de dependencias. NO se instala aquí: el propio
+# R7 lo instala en su primera celda, para no arrastrarlo a los demás notebooks.
+#   pip install "autogluon.tabular[all]>=1.0,<1.2"
+
+# --- interpretabilidad (solo R8, opcional) ---
+# R8 lo instala si falta. Descomentar solo si quieres tenerlo desde el inicio.
+# shap>=0.44
+
+# --- AWS ---
+boto3>=1.34
+s3fs>=2024.2               # habilita pd.read_parquet("s3://...")
+
+# --- gráficos ---
+matplotlib>=3.8
+seaborn>=0.13
+
+# --- notebooks ---
+ipywidgets>=8.1            # barras de progreso de CTGAN y AutoGluon
+nbformat>=5.9              # generación de los .ipynb y prueba de humo local

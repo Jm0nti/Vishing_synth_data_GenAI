@@ -1,0 +1,187 @@
+{
+  "1_columnas_constantes": {
+    "n": 0,
+    "columnas": [],
+    "pasa": true
+  },
+  "2_pares_duplicados": {
+    "n": 0,
+    "pares": [],
+    "pasa": true,
+    "top5_correlaciones": [
+      [
+        "dead_time_periods",
+        "total_dead_time_s",
+        0.8532
+      ],
+      [
+        "input_error_count",
+        "input_correction_count",
+        0.7374
+      ],
+      [
+        "avg_hesitation_duration_s",
+        "max_hesitation_duration_s",
+        0.7357
+      ],
+      [
+        "total_dead_time_s",
+        "dead_time_ratio",
+        0.7156
+      ],
+      [
+        "is_vishing",
+        "days_to_claim",
+        0.7005
+      ]
+    ]
+  },
+  "3_balance": {
+    "vishing": 5000,
+    "legitimas": 95000,
+    "pasa": true
+  },
+  "4_auc_univariado": {
+    "ranking": {
+      "max_hesitation_duration_s": 0.838,
+      "data_familiarity_score": 0.833,
+      "biocatch_risk_score": 0.8145,
+      "segmented_typing_ratio": 0.8129,
+      "swipe_directional_variance": 0.8027,
+      "hesitation_count": 0.7973,
+      "transaction_amount_cop": 0.7927,
+      "dead_time_periods": 0.7899,
+      "call_overlap_duration_s": 0.788,
+      "total_dead_time_s": 0.7853,
+      "session_duration_s": 0.784,
+      "input_error_count": 0.7807,
+      "biocatch_social_eng_indicator": 0.7782,
+      "biocatch_genuine_score": 0.778,
+      "time_to_transaction_s": 0.7754,
+      "phone_call_active": 0.7723,
+      "avg_hesitation_duration_s": 0.7712,
+      "phone_motion_events": 0.763,
+      "keystroke_variability": 0.7497,
+      "is_new_beneficiary": 0.7352,
+      "input_correction_count": 0.7284,
+      "typing_speed_cps": 0.7264,
+      "device_tilt_variability": 0.723,
+      "swipe_speed_px_s": 0.7174,
+      "avg_keyhold_ms": 0.7155,
+      "accelerometer_jerk_mean": 0.7075,
+      "gyro_rotation_rate_mean": 0.7015,
+      "hesitation_composite": 0.7,
+      "screen_transition_time_avg_s": 0.6988,
+      "biocatch_ato_indicator": 0.6847,
+      "scroll_speed_avg": 0.6835,
+      "beneficiary_field_corrections": 0.6771,
+      "navigation_back_count": 0.6709,
+      "doodling_events": 0.6703,
+      "unique_screens_visited": 0.6673,
+      "avg_interkey_latency_ms": 0.6522,
+      "dead_time_ratio": 0.6518,
+      "errors_per_minute": 0.6291,
+      "amount_field_corrections": 0.6191,
+      "transaction_attempted": 0.6162,
+      "device_tilt_angle_mean": 0.6073,
+      "copy_paste_events": 0.5745,
+      "hour_of_day": 0.5594,
+      "remote_access_tool_detected": 0.5521,
+      "is_atypical_hour": 0.5463,
+      "suspicious_app_detected": 0.535,
+      "avg_touch_pressure": 0.5154,
+      "avg_touch_size_px": 0.5035,
+      "biocatch_bot_indicator": 0.5005
+    },
+    "auc_max_features": 0.838,
+    "posthoc_excluidas": {
+      "days_to_claim": 0.8846
+    },
+    "variables_en_rojo": {},
+    "pasa": true
+  },
+  "5_sesiones_por_cliente": {
+    "clientes": 38000,
+    "media": 2.632,
+    "mediana": 2.0,
+    "maximo": 22,
+    "minimo": 1,
+    "p99": 10.0,
+    "pasa": true,
+    "max_vishing_por_cliente": 2,
+    "clientes_victima": 4893
+  },
+  "6_coocurrencia_vishing": {
+    "matriz": {
+      "phone_call_active": {
+        "phone_call_active": 1.0,
+        "segmented_typing_ratio": 0.1316,
+        "hesitation_count": 0.1375,
+        "is_new_beneficiary": 0.1319,
+        "session_duration_s": 0.0891
+      },
+      "segmented_typing_ratio": {
+        "phone_call_active": 0.1316,
+        "segmented_typing_ratio": 1.0,
+        "hesitation_count": 0.1753,
+        "is_new_beneficiary": 0.1289,
+        "session_duration_s": 0.1476
+      },
+      "hesitation_count": {
+        "phone_call_active": 0.1375,
+        "segmented_typing_ratio": 0.1753,
+        "hesitation_count": 1.0,
+        "is_new_beneficiary": 0.1603,
+        "session_duration_s": 0.1183
+      },
+      "is_new_beneficiary": {
+        "phone_call_active": 0.1319,
+        "segmented_typing_ratio": 0.1289,
+        "hesitation_count": 0.1603,
+        "is_new_beneficiary": 1.0,
+        "session_duration_s": 0.0789
+      },
+      "session_duration_s": {
+        "phone_call_active": 0.0891,
+        "segmented_typing_ratio": 0.1476,
+        "hesitation_count": 0.1183,
+        "is_new_beneficiary": 0.0789,
+        "session_duration_s": 1.0
+      }
+    },
+    "min_corr": 0.0789,
+    "max_corr": 0.1753,
+    "pasa": true
+  },
+  "7_rangos_y_sanidad": {
+    "ratios_en_0_1": true,
+    "duraciones_no_negativas": true,
+    "max_hes_ge_avg_hes": true,
+    "dead_time_le_duracion": true,
+    "overlap_le_duracion": true,
+    "overlap_cero_sin_llamada": true,
+    "ttt_centinela_coherente": true,
+    "monto_centinela_coherente": true,
+    "claim_category_coherente": true,
+    "session_id_unico": true,
+    "row_id_unico_y_completo": true,
+    "sin_nulos": true,
+    "sd_session_duration_s": 141.337,
+    "nunique_session_duration_s": 36380,
+    "hora_coincide_con_timestamp": true,
+    "pasa": true
+  },
+  "_resumen": {
+    "filas": 100000,
+    "columnas": 58,
+    "todas_las_validaciones_pasan": true
+  },
+  "_entorno": {
+    "python": "3.11.15",
+    "numpy": "2.4.4",
+    "pandas": "3.0.2",
+    "scipy": "1.17.1",
+    "seed": 42,
+    "segundos_generacion": 3.58
+  }
+}
